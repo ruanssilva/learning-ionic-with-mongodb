@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{login}} details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-avatar padding item-center>
+    <img [src]="user.avatar_url">
+  </ion-avatar>
+
+  <ion-list>
+    <button ion-item (click)="goToFollowers($event, user.login)"> 
+      <ion-badge >{{user.followers}} followers</ion-badge>
+      <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" item-right></ion-icon>
+    </button>
+    <button ion-item (click)="goToFollowing($event, user.login)"> 
+      <ion-badge >{{user.following}} following</ion-badge>
+      <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" item-right></ion-icon>
+    </button>
+    <ion-item>
+      <ion-label>Repos</ion-label>
+      <ion-badge item-right>{{user.public_repos}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gists</ion-label>
+      <ion-badge item-right>{{user.public_gists}}</ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>

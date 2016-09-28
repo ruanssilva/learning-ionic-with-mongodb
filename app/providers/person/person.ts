@@ -46,7 +46,7 @@ export class Person {
   delete(person) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    
+
     return new Promise((resolve) => {
       this.http.delete('http://localhost:8080/api/person/' + person._id)
         .map((res) => res.json())
