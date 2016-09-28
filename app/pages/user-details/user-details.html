@@ -22,6 +22,10 @@
       <ion-badge >{{user.following}} following</ion-badge>
       <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" item-right></ion-icon>
     </button>
+    <button ion-item (click)="goToRepositories($event, user.login)"> 
+      <ion-badge >{{user.public_repos}} public repositories</ion-badge>
+      <ion-icon ios="ios-arrow-forward" md="md-arrow-forward" item-right></ion-icon>
+    </button>
     <ion-item>
       <ion-label>Repos</ion-label>
       <ion-badge item-right>{{user.public_repos}}</ion-badge>

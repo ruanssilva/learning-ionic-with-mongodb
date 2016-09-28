@@ -6,6 +6,7 @@ import {User} from '../../models/user';
 
 import { UserFollowersPage  } from '../user-followers/user-followers'
 import { UserFollowingPage  } from '../user-following/user-following'
+import { UserRepositoriesPage  } from '../user-repositories/user-repositories'
 
 /*
   Generated class for the UserDetailsPage page.
@@ -38,6 +39,12 @@ export class UserDetailsPage {
 
   goToFollowing(event, login) {
     this.navCtrl.push(UserFollowingPage, {
+      login: login
+    });
+  }
+
+  goToRepositories(event, login) {
+    this.navCtrl.push(UserRepositoriesPage, {
       login: login
     });
   }

@@ -31,6 +31,10 @@ export class MyApp {
       StatusBar.styleDefault();
     });
   }
+
+  openPage(page : { title: string, componente: any }){
+    this.rootPage = page.componente;
+  }
 }
 
 ionicBootstrap(MyApp, [Person]);

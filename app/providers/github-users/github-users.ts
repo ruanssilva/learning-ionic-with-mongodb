@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { User } from '../../models/user';
+import { Repository } from '../../models/repository';
 
 /*
   Generated class for the GithubUsers provider.
@@ -92,6 +93,21 @@ export class GithubUsers {
         .map(res => <Array<User>>(res.json().items))
         .subscribe(users => {
           resolve(users);
+        });
+    });
+  }
+
+  searchRepositories(login: string) {
+    // get the data from the api and return it as a promise
+    return new Promise<Array<Repository>>(resolve => {
+      // Change the url to match https://api.github.com/search/users?q={searchParam}
+      this.http.get(`https://api.github.com/users/${ login }/repos`)
+        // Cast the result into an array of users. 
+        // The returned json result has an items
+        // property which contains the users
+        .map(res => <Array<Repository>>(res.json()))
+        .subscribe(repositories => {
+          resolve(repositories);
         });
     });
   }
